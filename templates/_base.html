@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% block head %}
+	<link rel="stylesheet" href="./public/style.css" />
+	<title>{% block title %}{% endblock %} - My Webpage</title>
+	{% endblock %}
+</head>
+
+<body>
+	<div id="content">{% block content %}{% endblock %}</div>
+	<div role="main" id="footer" class="footer container col-md-8">
+		{% block footer %}{% endblock %}
+		&copy; Copyright 2023 <a href="https://www.linkedin.com/in/radu-marin-710060296">Radu Marin</a>.
+	</div>
+</body>
+
+</html>

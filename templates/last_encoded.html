@@ -1,0 +1,59 @@
+{% extends "_base.html" %}
+{% block head %}
+{{ super() }}
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="../../public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Website CSS -->
+	<link rel="stylesheet" type="text/css" href="../../public/style.css">
+
+	<title>{% block title %}{% endblock %}Steganography tool</title>
+</head>
+{% endblock %}
+
+{% block content %}
+
+<body>
+	<header class="site-header">
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark">
+			<div class="container">
+				<a class="navbar-brand mr-4">Menu</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+					aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarToggle">
+					<div class="navbar-nav mr-auto">
+						<a class="nav-item nav-link" href="/">Home</a>
+						<a class="nav-item nav-link" href="/image/encode">Encoding</a>
+						<a class="nav-item nav-link" href="/image/decode">Decoding</a>
+						<a class="nav-item nav-link" href="/image/last/encoded">Latest encoded</a>
+						<a class="nav-item nav-link" href="/image/last/decoded">Latest decoded</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Main page content element -->
+	<main role="main" class="container">
+		<!-- The image -->
+		<div class="row">
+			{% if message %}
+				<p>{{ message }}</p>
+			{% else %}
+				<img src="data:application/octet-stream;base64,{{ image_data }}" alt="Encoded Image">
+			{% endif %}
+		</div>
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../../public/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+{% endblock %}
